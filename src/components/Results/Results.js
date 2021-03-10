@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Item from '../Item'
-import axios from 'axios'
 import './Results.scss'
 import LoadingBox from '../LoadingBox'
+import { searchItemsAction } from '../../actions/SearchActions'
+import { useDispatch, useSelector } from 'react-redux'
+import ErrorMessage from '../ErrorMessage/ErrorMessage'
 
 // const mockItems = [ 
 //     {
@@ -58,40 +60,28 @@ import LoadingBox from '../LoadingBox'
 
 const Results = (props) => {
 
-    const [ loading, setLoading ] = useState(true)
-    const [ data, setData ] = useState({})
     const searchProduct = props.location.search.split('=')[1];
+    const dispatch = useDispatch();
+    const { loading, items, error } = useSelector( state => state.searchItems )
 
     useEffect( () => {
-        const callService = async () => {
-
-            try{
-                const {data} = await axios.get(`http://localhost:5000/api/items?q=${searchProduct}`)
-                console.log(data)
-                setData(data);
-                setLoading(false);
-
-            }catch(err){
-                console.log(err.response.data.message)
-            }
-        }
-
-        callService();
-
-    }, [searchProduct])
+        dispatch( searchItemsAction(searchProduct) )
+    }, [searchProduct, dispatch])
 
     return (
         <>
         {loading
             ? <LoadingBox /> 
-            :(
+            : error 
+                ? <ErrorMessage>{error}</ErrorMessage>
+                :(
                 <>
                     <div className='breadCrum'>
                         ........
                     </div>
                     <div className='results'>  
                         <ul>  
-                            { data.items.map( item => (
+                            { items.map( item => (
                                 <li key={item.id}>
                                     <Item 
                                         currency={item.price.currency}
