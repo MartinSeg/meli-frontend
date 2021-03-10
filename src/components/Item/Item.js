@@ -3,12 +3,16 @@ import './Item.scss'
 import Shipping from '../../assets/ic_shipping.png'
 
 
-const Item = ({currency, amount, decimals, freeShipping }) => {
+const Item = ({currency, amount, decimals, freeShipping, picture }) => {
     return (
         <div className='item'>
             <div className='item-details'>
                 <div>
-                    <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdYSTpaHNx15fmP9aVxajM6sCYsGRij5NKIQ&usqp=CAU' alt='Product'/>
+                    <img 
+                        className='item-details-image'
+                        src={picture} 
+                        alt='Product'
+                    />
                 </div>
 
                 <div className='item-description'>
@@ -16,7 +20,7 @@ const Item = ({currency, amount, decimals, freeShipping }) => {
                         <span >
                             {currency} {amount},{decimals}
                         </span>
-                        {freeShipping && <img src={Shipping} alt='Shipping'/>}
+                        {freeShipping && <img className='item-details-shipping' src={Shipping} alt='Shipping'/>}
                     </div>
                     <span className='item-description-text'>
                         Apple iPod Touch 5g 16gb Negro, igual a Nuevo

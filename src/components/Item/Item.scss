@@ -4,14 +4,21 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid $backgroundBodyColor;
     box-sizing: border-box;
 
     &-details{
         display: flex;
 
-        img{
+        &-shipping{
             padding: 16px 16px 16px 0px;
+        }
+
+        &-image{
+            padding: 16px 16px 16px 0px;
+            width: 180px;
+            height: 180px;
+            border-radius: 4px;
+            overflow: hidden;
         }
     }
 
@@ -42,5 +49,6 @@
         align-self: flex-start;
         margin-top: 50px;
         font-size: 12px;
+        color: #999999
     }
 }
