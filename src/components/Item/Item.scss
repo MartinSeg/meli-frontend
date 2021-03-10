@@ -1,0 +1,40 @@
+
+
+.item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-details{
+        display: flex;
+
+        img{
+            padding: 16px;
+        }
+    }
+
+    &-description{
+        display: flex;
+        flex-direction: column;
+
+        &-price{
+            padding-top: 30px;
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            margin-bottom: 32px;
+        }
+
+        &-text{
+            font-size: 18px;
+        }
+    }
+
+    &-location{
+        flex:1;
+        text-align: center;
+        align-self: flex-start;
+        margin-top: 50px;
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,20 @@
+@import '../../styles/variables.scss';  
+
+
+.results{
+    background-color: $backgroundColor;
+    width: 100vw;
+
+    p{  
+        width: 80vw;
+        padding: 16px;
+        margin: 0px auto;
+    }
+
+    &-main{
+        background-color: #FFF;
+        margin: 0px auto;
+        width: 80vw;
+        height: 100%;
+    }
+}
