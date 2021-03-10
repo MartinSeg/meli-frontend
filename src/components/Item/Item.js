@@ -3,7 +3,7 @@ import './Item.scss'
 import Shipping from '../../assets/ic_shipping.png'
 
 
-const Item = () => {
+const Item = ({currency, amount, decimals, freeShipping }) => {
     return (
         <div className='item'>
             <div className='item-details'>
@@ -14,9 +14,9 @@ const Item = () => {
                 <div className='item-description'>
                     <div className='item-description-price'>
                         <span >
-                            $ 1.980
+                            {currency} {amount},{decimals}
                         </span>
-                        <img src={Shipping} alt='Shipping'/>
+                        {freeShipping && <img src={Shipping} alt='Shipping'/>}
                     </div>
                     <span className='item-description-text'>
                         Apple iPod Touch 5g 16gb Negro, igual a Nuevo

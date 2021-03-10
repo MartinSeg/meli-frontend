@@ -2,19 +2,15 @@
 
 
 .results{
-    background-color: $backgroundColor;
-    width: 100vw;
+    background-color: #FFF;
+    width: 1200px;
+    margin: 0px auto;
+    padding: 0px 16px;
+    box-sizing: border-box;    
+}
 
-    p{  
-        width: 80vw;
-        padding: 16px;
-        margin: 0px auto;
-    }
-
-    &-main{
-        background-color: #FFF;
-        margin: 0px auto;
-        width: 80vw;
-        height: 100%;
-    }
+.breadCrum{  
+    width: 1200px;
+    padding: 16px;
+    margin: 0px auto;
 }

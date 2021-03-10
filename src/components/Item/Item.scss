@@ -1,15 +1,17 @@
-
+@import '../../styles/variables.scss';
 
 .item{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 1px solid $backgroundBodyColor;
+    box-sizing: border-box;
 
     &-details{
         display: flex;
 
         img{
-            padding: 16px;
+            padding: 16px 16px 16px 0px;
         }
     }
 
@@ -23,6 +25,10 @@
             align-items: center;
             font-size: 24px;
             margin-bottom: 32px;
+
+            span{
+                margin-right: 10px;
+            }
         }
 
         &-text{

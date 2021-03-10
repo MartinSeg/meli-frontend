@@ -14,7 +14,7 @@ const mockItems = [
         },
         picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdYSTpaHNx15fmP9aVxajM6sCYsGRij5NKIQ&usqp=CAU",
         condition: "paid",
-        free_shipping: true,   
+        free_shipping: false,   
     },
     {
         id: "2",
@@ -72,17 +72,28 @@ const Results = () => {
     }, [])
 
     return (
-        <div className='results'>
-            <p>
+        <>
+            <div className='breadCrum'>
                 ........
-            </p>
-           <div className='results-main'>
-               { mockItems.map( item => (
-                   <Item/>
-               ))}
-           </div>
-        </div>
+            </div>
+            <div className='results'>     
+                <div className='results-main'>
+                    { mockItems.map( item => (
+                        <div key={item.id}>
+                            <Item 
+                                currency={item.price.currency}
+                                amount={item.price.amount}
+                                decimals={item.price.decimals}
+                                freeShipping={item.free_shipping}
+                            />
+                        </div>
+                    ))}
+                </div> 
+            </div>
+        </>
     )
 }
 
 export default Results
+
+

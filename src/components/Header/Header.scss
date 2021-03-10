@@ -1,16 +1,17 @@
 @import '../../styles/variables.scss';
 
 .header{
-    width: 100vw;
-    background-color: $headerColor;
+    width: 100%;
+    background-color: $backGroundHeaderColor;
 
     &-menu{
         display:flex;
         align-items: center;
         justify-content: center;
-        width: 80%;
+        width: 1200px;
         margin: 0px auto;
-        padding: 10px;
+        padding: 10px 0px 10px 0px;
+        box-sizing: border-box;
 
         &-logo{
             margin-right: 25px;
@@ -39,7 +40,7 @@
             ::-webkit-input-placeholder { color: #999999; } 
 
             &-button{
-                background-color: $backgroundColor;
+                background-color: $backgroundBodyColor;
                 border: none;
                 width: 50px;
                 height: 40px;
