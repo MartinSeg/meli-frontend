@@ -7,9 +7,7 @@ export const searchItemsAction = (searchProduct) => async (dispatch) => {
 
     try{
         const {data} = await axios.get(`http://localhost:5000/api/items?q=${searchProduct}`)
-
         console.log(data)
-
         dispatch({ type: SEARCH_ITEMS_SUCCEESS, payload: data.items})
 
     }catch(err){

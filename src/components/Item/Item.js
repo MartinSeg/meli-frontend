@@ -3,9 +3,14 @@ import './Item.scss'
 import Shipping from '../../assets/ic_shipping.png'
 
 
-const Item = ({currency, amount, decimals, freeShipping, picture }) => {
+const Item = ({id, title, currency, amount, freeShipping, picture, address, props}) => {
+
+    const handleOnClick = () => {
+        props.history.push(`/items/${id}`)
+    }
+
     return (
-        <div className='item'>
+        <div className='item' onClick={handleOnClick}>
             <div className='item-details'>
                 <div>
                     <img 
@@ -18,21 +23,21 @@ const Item = ({currency, amount, decimals, freeShipping, picture }) => {
                 <div className='item-description'>
                     <div className='item-description-price'>
                         <span >
-                            {currency} {amount},{decimals}
+                            {currency === 'ARS' && '$'} {amount}
                         </span>
                         {freeShipping && <img className='item-details-shipping' src={Shipping} alt='Shipping'/>}
                     </div>
                     <span className='item-description-text'>
-                        Apple iPod Touch 5g 16gb Negro, igual a Nuevo
+                        {title}
                     </span>
                     <span>
-                        Completo Unico!!
+                        ...
                     </span>
                 </div>
             </div>
             <div className='item-location'>
                 <span>
-                    Capital Federal
+                    {address}
                 </span>
             </div>             
         </div>

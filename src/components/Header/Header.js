@@ -8,7 +8,7 @@ const Header = (props) => {
     const [ inputValue, setInputValue ] = useState('');
 
     const handleSumit = (e) => {
-        e.preventDefault();
+       e.preventDefault();
        props.history.push(`/items?search=${inputValue}`)
        setInputValue('')
     }

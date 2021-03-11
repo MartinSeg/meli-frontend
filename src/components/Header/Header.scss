@@ -2,13 +2,14 @@
 
 .header{
     width: 100%;
-    background-color: $backGroundHeaderColor;
+    // min-width: 1400px;
+    background-color: $headerbackgroundColor;
 
     &-menu{
         display:flex;
         align-items: center;
         justify-content: center;
-        width: 1200px;
+        width: $primarySectionWidth;
         margin: 0px auto;
         padding: 10px 0px 10px 0px;
         box-sizing: border-box;
@@ -40,7 +41,7 @@
             ::-webkit-input-placeholder { color: #999999; } 
 
             &-button{
-                background-color: $backgroundBodyColor;
+                background-color: $bodyBackgroundColor;
                 border: none;
                 width: 50px;
                 height: 40px;

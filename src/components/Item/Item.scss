@@ -1,13 +1,17 @@
-@import '../../styles/variables.scss';
-
 .item{
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
 
+    &:hover{
+        cursor: pointer;
+        font-weight: bold;
+    }
+
     &-details{
         display: flex;
+        width: 1000px;
 
         &-shipping{
             padding: 16px 16px 16px 0px;
@@ -44,11 +48,17 @@
     }
 
     &-location{
-        flex:1;
-        text-align: center;
+        width: 300px;
         align-self: flex-start;
-        margin-top: 50px;
+        margin:50px 80px;
         font-size: 12px;
-        color: #999999
+        color: #999999;
     }
 }
+
+// .decimals{
+//     font-size: 12px;
+//     position: relative;
+//     top: -6px;
+//     left: -4px;
+// }

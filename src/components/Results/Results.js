@@ -57,7 +57,6 @@ import ErrorMessage from '../ErrorMessage/ErrorMessage'
 //     }
 // ]
 
-
 const Results = (props) => {
 
     const searchProduct = props.location.search.split('=')[1];
@@ -76,7 +75,7 @@ const Results = (props) => {
                 ? <ErrorMessage>{error}</ErrorMessage>
                 :(
                 <>
-                    <div className='breadCrum'>
+                    <div className='breadCrumb'>
                         ........
                     </div>
                     <div className='results'>  
@@ -84,11 +83,14 @@ const Results = (props) => {
                             { items.map( item => (
                                 <li key={item.id}>
                                     <Item 
+                                        id={item.id}
+                                        title={item.title}
                                         currency={item.price.currency}
                                         amount={item.price.amount}
-                                        decimals={item.price.decimals}
                                         freeShipping={item.free_shipping}
                                         picture={item.picture}
+                                        address={item.address}
+                                        props={props}
                                     />
                                 </li>
                             ))}

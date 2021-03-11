@@ -3,7 +3,7 @@
 
 .results{
     background-color: #FFF;
-    width: 1200px;
+    width: $primarySectionWidth;
     margin: 0px auto;
     padding: 0px 16px;
     box-sizing: border-box;   
@@ -12,7 +12,7 @@
         list-style: none;
 
         li{
-            border-bottom: 1px solid $backgroundBodyColor;
+            border-bottom: 1px solid $bodyBackgroundColor;
 
             &:last-child{
                 border-bottom: none
@@ -21,10 +21,31 @@
     }
 }
 
-
-
-.breadCrum{  
-    width: 1200px;
+.breadCrumb{  
+    width: $primarySectionWidth;
     padding: 16px;
     margin: 0px auto;
+    color: $textColoredGray;
+    font-size: 16px;
+
+    ul{
+        display: flex;
+        list-style: none;
+
+        li:last-child .breadCrumb_sign{
+            display: none
+        }
+    }
+
+    &_sign{
+        margin: 0px 10px;
+
+        
+    }
+
+    &_category:hover{
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
 }
