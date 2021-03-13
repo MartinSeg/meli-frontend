@@ -6,7 +6,7 @@ describe( '<Error Message/> ', () => {
     const wrapper = shallow(<ErrorMessage children={children}/>);
 
     it( 'render message OK', () => {
-        expect(wrapper.find('div').text()).toBe(children)
+        expect(wrapper.find(`[data-test='messageBoxContainer']`).text()).toBe(children)
     })
 
 })

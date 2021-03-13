@@ -18,6 +18,7 @@ const Header = (props) => {
             <div className='header-menu'>
                 <div className='header-menu-logo'>
                     <img 
+                        className='ml-logo'
                         src={Logo} 
                         alt='Logo'
                     />

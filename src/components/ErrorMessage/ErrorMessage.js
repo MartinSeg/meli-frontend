@@ -3,7 +3,7 @@ import './ErrorMessage.scss'
 
 const ErrorMessage = ({children}) => {
     return (
-        <div className='alert'>
+        <div className='alert' data-test='messageBoxContainer'>
             {children}
         </div>
     )
