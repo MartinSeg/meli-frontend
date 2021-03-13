@@ -6,57 +6,6 @@ import { searchItemsAction } from '../../actions/SearchActions'
 import { useDispatch, useSelector } from 'react-redux'
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
 
-// const mockItems = [ 
-//     {
-//         id: "1",
-//         title: "hola",
-//         price: {
-//             currency: "$",
-//             amount: 10,
-//             decimals: 90
-//         },
-//         picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdYSTpaHNx15fmP9aVxajM6sCYsGRij5NKIQ&usqp=CAU",
-//         condition: "paid",
-//         free_shipping: false,   
-//     },
-//     {
-//         id: "2",
-//         title: "hola2",
-//         price: {
-//             currency: "$",
-//             amount: 10,
-//             decimals: 90
-//         },
-//         picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdYSTpaHNx15fmP9aVxajM6sCYsGRij5NKIQ&usqp=CAU",
-//         condition: "paid",
-//         free_shipping: true,   
-//     },
-//     {
-//         id: "3",
-//         title: "hola3",
-//         price: {
-//             currency: "$",
-//             amount: 10,
-//             decimals: 90
-//         },
-//         picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdYSTpaHNx15fmP9aVxajM6sCYsGRij5NKIQ&usqp=CAU",
-//         condition: "paid",
-//         free_shipping: true,   
-//     },
-//     {
-//         id: "4",
-//         title: "hola4",
-//         price: {
-//             currency: "$",
-//             amount: 10,
-//             decimals: 90
-//         },
-//         picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdYSTpaHNx15fmP9aVxajM6sCYsGRij5NKIQ&usqp=CAU",
-//         condition: "paid",
-//         free_shipping: true,   
-//     }
-// ]
-
 const Results = (props) => {
 
     const searchProduct = props.location.search.split('=')[1];
@@ -67,13 +16,11 @@ const Results = (props) => {
         dispatch( searchItemsAction(searchProduct) )
     }, [searchProduct, dispatch])
 
-    return (
-        <>
-        {loading
-            ? <LoadingBox /> 
-            : error 
-                ? <ErrorMessage>{error}</ErrorMessage>
-                :(
+
+    const renderResult = () => {
+        return error 
+            ? <ErrorMessage>{error}</ErrorMessage>
+            :(
                 <>
                     <div className='breadCrumb'>
                         ........
@@ -98,7 +45,14 @@ const Results = (props) => {
                     </div>
                 </>
             )
-        }
+    }
+
+    return (
+        <>
+            {loading
+                ? <LoadingBox /> 
+                : renderResult()
+            }
         </>      
     )
 }

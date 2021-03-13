@@ -6,7 +6,8 @@ export const itemDetailsReducer = ( state = { loading: true }, action) => {
         case FETCH_ITEM_DETAILS_REQUEST:
             return { loading : true }
         case FETCH_ITEM_DETAILS_SUCCESS:
-            return { loading: false, itemInfo: action.payload}
+            const { item, breadCrumb } = action.payload;
+            return { loading: false, item, breadCrumb }
         case FETCH_ITEM_DETAILS_FAIL:
             return { loading: false, error: action.payload}
         default:

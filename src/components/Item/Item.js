@@ -23,7 +23,7 @@ const Item = ({id, title, currency, amount, freeShipping, picture, address, prop
                 <div className='item-description'>
                     <div className='item-description-price'>
                         <span >
-                            {currency === 'ARS' && '$'} {amount}
+                            {currency === 'ARS' ? '$' : currency} {amount}
                         </span>
                         {freeShipping && <img className='item-details-shipping' src={Shipping} alt='Shipping'/>}
                     </div>

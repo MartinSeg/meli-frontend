@@ -20,32 +20,3 @@
         }
     }
 }
-
-.breadCrumb{  
-    width: $primarySectionWidth;
-    padding: 16px;
-    margin: 0px auto;
-    color: $textColoredGray;
-    font-size: 16px;
-
-    ul{
-        display: flex;
-        list-style: none;
-
-        li:last-child .breadCrumb_sign{
-            display: none
-        }
-    }
-
-    &_sign{
-        margin: 0px 10px;
-
-        
-    }
-
-    &_category:hover{
-        cursor: pointer;
-        text-decoration: underline;
-    }
-
-}

@@ -7,7 +7,7 @@ const Header = (props) => {
 
     const [ inputValue, setInputValue ] = useState('');
 
-    const handleSumit = (e) => {
+    const onHandleSubmit = (e) => {
        e.preventDefault();
        props.history.push(`/items?search=${inputValue}`)
        setInputValue('')
@@ -22,7 +22,7 @@ const Header = (props) => {
                         alt='Logo'
                     />
                 </div>
-                <form className='header-menu-form' onSubmit={handleSumit}>
+                <form className='header-menu-form' onSubmit={onHandleSubmit}>
                     <input 
                         className='header-menu-form-input'
                         type='text' 
@@ -30,6 +30,8 @@ const Header = (props) => {
                         autoComplete='off'
                         onChange={ e => setInputValue(e.target.value)}
                         value={inputValue}
+                        autoFocus
+                        alt='search-input'
                     />
                     <button 
                         className='header-menu-form-button'

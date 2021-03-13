@@ -5,11 +5,13 @@ export const itemDetailsAction = ( id ) => async (dispatch) => {
     dispatch({ type: FETCH_ITEM_DETAILS_REQUEST})
 
     try{
-        const { data } = await axios.get(`http://localhost:5000/api/items/${id}`)
-
-        dispatch({type: FETCH_ITEM_DETAILS_SUCCESS, payload: data})
+        const {data}  = await axios.get(`http://localhost:5000/api/items/${id}`)
+        const {item, breadCrumb} = data
+        console.log(data)
+        dispatch({type: FETCH_ITEM_DETAILS_SUCCESS, payload: {item, breadCrumb}})
         
     }catch(err){
-        dispatch({type: FETCH_ITEM_DETAILS_FAIL, payload: err.response.data.message})
+        const message = err.response.data.message || err.message;
+        dispatch({type: FETCH_ITEM_DETAILS_FAIL, payload: message})
     }
 }
