@@ -5,12 +5,13 @@ import LoadingBox from '../LoadingBox'
 import { searchItemsAction } from '../../actions/SearchActions'
 import { useDispatch, useSelector } from 'react-redux'
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
+import BreadCrumb from '../BreadCrumb/BreadCrumb'
 
 const Results = (props) => {
 
     const searchProduct = props.location.search.split('=')[1];
     const dispatch = useDispatch();
-    const { loading, items, error } = useSelector( state => state.searchItems )
+    const { loading, items, error, breadCrumb } = useSelector( state => state.searchItems )
 
     useEffect( () => {
         dispatch( searchItemsAction(searchProduct) )
@@ -22,9 +23,7 @@ const Results = (props) => {
             ? <ErrorMessage>{error}</ErrorMessage>
             :(
                 <>
-                    <div className='breadCrumb'>
-                        ........
-                    </div>
+                    <BreadCrumb breadCrumb={breadCrumb} />
                     <div className='results'>  
                         <ul data-testid='itemList'>   
                             { items.map( item => (

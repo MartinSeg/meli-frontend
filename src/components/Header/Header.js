@@ -33,6 +33,7 @@ const Header = (props) => {
                         value={inputValue}
                         autoFocus
                         alt='search-input'
+                        id='searchInput'
                     />
                     <button 
                         className='header-menu-form-button'

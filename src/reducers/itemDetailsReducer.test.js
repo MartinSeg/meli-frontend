@@ -1,7 +1,6 @@
 import { FETCH_ITEM_DETAILS_REQUEST, FETCH_ITEM_DETAILS_SUCCESS, FETCH_ITEM_DETAILS_FAIL } from '../constants/itemDetailsConstants';
 import {itemDetailsReducer} from './itemDetailsReducer';
 
-
 describe( 'Item Details Reducer', () => {
     
     it( 'Returns loading true, when no type is sent', () => {
@@ -44,5 +43,4 @@ describe( 'Item Details Reducer', () => {
         const newState = itemDetailsReducer( {loading: true}, {type: FETCH_ITEM_DETAILS_FAIL, payload: error} );
         expect(newState).toEqual({loading: false, error})
     })
-
 })

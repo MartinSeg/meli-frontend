@@ -1,4 +1,4 @@
-import { SEARCH_ITEMS_FAIL, SEARCH_ITEMS_REQUEST, SEARCH_ITEMS_SUCCEESS } from "../constants/searchItemsConstants"
+import { SEARCH_ITEMS_FAIL, SEARCH_ITEMS_REQUEST, SEARCH_ITEMS_SUCCESS } from "../constants/searchItemsConstants"
 import axios from 'axios'
 
 export const searchItemsAction = (searchProduct) => async (dispatch) => {
@@ -7,7 +7,8 @@ export const searchItemsAction = (searchProduct) => async (dispatch) => {
 
     try{
         const {data} = await axios.get(`http://localhost:5000/api/items?q=${searchProduct}`)
-        dispatch({ type: SEARCH_ITEMS_SUCCEESS, payload: data.items})
+        const { items, breadCrumb } = data
+        dispatch({ type: SEARCH_ITEMS_SUCCESS, payload: {items, breadCrumb}})
 
     }catch(err){
 

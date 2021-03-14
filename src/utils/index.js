@@ -30,7 +30,8 @@ export const testItems = {
         picture : 'thumbnail2',
         condition : 'condition2',
         free_shipping : 'shipping2',
-    }]
+    }],
+    breadCrumb: ['c1', 'c2', 'c3']
 }
    
 export const testItemDetails = {

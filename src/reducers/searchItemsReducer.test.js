@@ -1,4 +1,4 @@
-import { SEARCH_ITEMS_FAIL, SEARCH_ITEMS_REQUEST, SEARCH_ITEMS_SUCCEESS } from '../constants/searchItemsConstants';
+import { SEARCH_ITEMS_FAIL, SEARCH_ITEMS_REQUEST, SEARCH_ITEMS_SUCCESS } from '../constants/searchItemsConstants';
 import { searchItemsReducer} from './searchItemsReducer';
 import { testItems } from '../utils'
 
@@ -14,10 +14,10 @@ describe( 'Search Items Reducer', () => {
         expect(newState).toEqual({loading: true})
     })
 
-    it( 'Returns new state, when received type is SEARCH_ITEMS_SUCCEESS', () => {
-        const items = testItems;
-        const newState = searchItemsReducer( {loading: true}, {type: SEARCH_ITEMS_SUCCEESS, payload: items });
-        expect(newState).toEqual({loading:false, items})
+    it( 'Returns new state, when received type is SEARCH_ITEMS_SUCCESS', () => {
+        const { items, breadCrumb }  = testItems;
+        const newState = searchItemsReducer( {loading: true}, {type: SEARCH_ITEMS_SUCCESS, payload: {items, breadCrumb }} );
+        expect(newState).toEqual({loading:false, items, breadCrumb})
     })
 
     it( 'Returns new state, when received type is SEARCH_ITEMS_FAIL', () => {
@@ -25,5 +25,4 @@ describe( 'Search Items Reducer', () => {
         const newState = searchItemsReducer( {loading: true}, {type: SEARCH_ITEMS_FAIL, payload: error} );
         expect(newState).toEqual({loading: false, error})
     })
-
 })
