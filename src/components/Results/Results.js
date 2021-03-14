@@ -26,7 +26,7 @@ const Results = (props) => {
                         ........
                     </div>
                     <div className='results'>  
-                        <ul>  
+                        <ul data-testid='itemList'>   
                             { items.map( item => (
                                 <li key={item.id}>
                                     <Item 

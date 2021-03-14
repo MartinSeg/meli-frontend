@@ -7,7 +7,6 @@ export const itemDetailsAction = ( id ) => async (dispatch) => {
     try{
         const {data}  = await axios.get(`http://localhost:5000/api/items/${id}`)
         const {item, breadCrumb} = data
-        console.log(data)
         dispatch({type: FETCH_ITEM_DETAILS_SUCCESS, payload: {item, breadCrumb}})
         
     }catch(err){

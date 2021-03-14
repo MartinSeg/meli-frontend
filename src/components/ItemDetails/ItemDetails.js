@@ -1,4 +1,3 @@
-// import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { itemDetailsAction } from '../../actions/ItemDetailsActions'
@@ -17,7 +16,7 @@ const ItemDetails = (props) => {
     }, [dispatch, itemId ] )
 
     const renderResult = () => {
-        const {condition, sold_quantity, title, price:{currency, amount} , picture, description} = item
+        const {condition, sold_quantity, title, price:{currency, amount} , picture, description} = item;
         return (
             <>
                 <BreadCrumb breadCrumb={breadCrumb} />
@@ -28,18 +27,19 @@ const ItemDetails = (props) => {
                                 className='item_info_picture' 
                                 src={picture} 
                                 alt='Item' 
+                                data-testid='itemIMG'
                             />
-                            <div className='item_description'>
+                            <div className='item_description' >
                                 <p className='item_description_title'> Descripcion del producto</p>
-                                <p className='item_description_details'> {description} </p>
+                                <p className='item_description_details' data-testid='descriptionContainer' > {description} </p>
                             </div> 
                         </div>
                         <div className='item_info_data'>
-                            <span className='item_sales'> { condition} - {sold_quantity} Vendidos</span>
-                            <span className='item_title'> { title }</span>
-                            <span className='item_price'> 
+                            <span className='item_sales' data-testid='conditionAndSoldQContainer'> { condition} - {sold_quantity} Vendidos</span>
+                            <span className='item_title'  data-testid='titleContainer'> { title }</span>
+                            <span className='item_price' data-testid='priceContainer'> 
                                 { currency === 'ARS' ? '$' : currency} &nbsp;   
-                                { amount.toFixed(2) } 
+                                { amount } 
                             </span>
                             <button className='item_buy_button'> Comprar </button>
                         </div>
