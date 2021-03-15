@@ -24,7 +24,7 @@
             align-items: center;
             width: 100%;
 
-            input{
+            &-input{
                 font-size: 18px;
                 border: none;
                 width: 100%;
@@ -57,3 +57,5 @@
         }
     }
 }
+
+

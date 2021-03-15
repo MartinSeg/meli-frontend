@@ -8,9 +8,9 @@ const Header = (props) => {
     const [ inputValue, setInputValue ] = useState('');
 
     const onHandleSubmit = (e) => {
-       e.preventDefault();
-       props.history.push(`/items?search=${inputValue}`)
-       setInputValue('')
+        e.preventDefault();
+        props.history.push(`/items?search=${inputValue}`)
+        setInputValue('')
     }
 
     return (
@@ -38,6 +38,7 @@ const Header = (props) => {
                     <button 
                         className='header-menu-form-button'
                         type='submit'
+                        disabled={inputValue.length <1 }
                     >
                         <img  src={Search} alt='search'/>
                     </button>
