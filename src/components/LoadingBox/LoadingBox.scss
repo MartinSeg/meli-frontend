@@ -1,6 +1,14 @@
+@import '../../styles/variables.scss';  
 
 .loading{
     display: block !important;
-    font-size: 20px;
-    margin: 10px;
+    width: 50%;
+    margin: 10px auto;
+    text-align: center;
+    font-size: 26px;
+    color: #999999;
+
+    i{
+        margin-right: 10px;
+    }
 }
