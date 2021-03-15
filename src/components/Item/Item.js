@@ -57,7 +57,7 @@ Item.propTypes = {
     amount: PropTypes.number.isRequired,
     freeShipping: PropTypes.bool,
     picture: PropTypes.string.isRequired,
-    address: PropTypes.string.isRequired,
+    address: PropTypes.string,
     props: PropTypes.object,
 };
 

@@ -1,6 +1,7 @@
 import { testItemDetails, testRender, testStore } from "../../utils";
 import ItemDetails from './ItemDetails'
 import * as reactRedux from 'react-redux' 
+import { mapConditionResult } from "../../utils/itemDetailsMapCondition";
 
 describe("ItemDetails", () => {
     const useSelectorMock = jest.spyOn(reactRedux, 'useSelector')
@@ -31,8 +32,9 @@ describe("ItemDetails", () => {
     it('Should render correctly store items in screen', () => {
         const {condition, sold_quantity, title, price:{currency, amount} , picture, description} = testItemDetails.item;
         const { getByTestId } = testRender(<ItemDetails match={{params: {id: '1'}}} />, { store })
+        
         expect(getByTestId('descriptionContainer').textContent).toContain(description);
-        expect(getByTestId('conditionAndSoldQContainer').textContent).toContain(condition);
+        expect(getByTestId('conditionAndSoldQContainer').textContent).toContain(mapConditionResult(condition));
         expect(getByTestId('conditionAndSoldQContainer').textContent).toContain(sold_quantity);
         expect(getByTestId('titleContainer').textContent).toContain(title);
         expect(getByTestId('priceContainer').textContent).toContain(currency);

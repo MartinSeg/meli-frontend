@@ -1,26 +1,39 @@
 @import '../../styles/variables.scss';
 
+
+.item_details_results{
+    background-color: #FFF;
+    width: $primarySectionWidth;
+    margin: 0px auto;
+    padding: 32px;
+    box-sizing: border-box;   
+}
+
 .item_info{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding-top:16px;
+
+    .item_img_container{
+        width: 70%;
+        box-sizing: border-box;
+    }
 
     &_picture{
         width: 680px;
+        margin: 0px auto;
     }
 
     &_data{
-        width: 400px;
+        width: 30%;
+        box-sizing: border-box;
         display: flex;
         flex-direction: column;
-        padding-left: 100px;
     }
 }
 
 .item_sales{
-    margin-top: 32px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .item_title{
@@ -36,8 +49,8 @@
 }
 
 .item_description{
-    width: 800px;
-    padding-left: 32px;
+    width: 70%;
+    word-break: break-word;
 
     &_title{
         font-size: 28px;
@@ -45,8 +58,8 @@
     }
 
     &_details{
-        word-break: break-all;
-        margin: 32px 0px;
+        word-break: break-word;
+        margin-top: 32px;
         color:#999999;
     }
 }

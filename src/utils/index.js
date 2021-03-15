@@ -15,21 +15,21 @@ export const testItems = {
         title : 'title',
         price : {
             currency: 'currency',
-            amount: 'amount',
+            amount: 1,
         },
         picture : 'thumbnail',
-        condition : 'condition',
-        free_shipping : 'shipping',
+        condition : 'new',
+        free_shipping : true,
     },{
         id: '2',
         title : 'title2',
         price : {
             currency: 'currency2',
-            amount: 'amount2',
+            amount: 1,
         },
         picture : 'thumbnail2',
-        condition : 'condition2',
-        free_shipping : 'shipping2',
+        condition : 'new',
+        free_shipping : true,
     }],
     breadCrumb: ['c1', 'c2', 'c3']
 }
@@ -44,11 +44,11 @@ export const testItemDetails = {
         title : 'title2',
         price : {
             currency: 'currency2',
-            amount: 'amount2',
+            amount: 1,
         },
         picture : 'thumbnail2',
-        condition : 'condition2',
-        free_shipping : 'shipping2',
+        condition : 'new',
+        free_shipping : true,
         sold_quantity : 'sold_quantity',
         description : 'plain_text'
     }

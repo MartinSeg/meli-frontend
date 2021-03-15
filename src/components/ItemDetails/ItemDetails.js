@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { itemDetailsAction } from '../../actions/ItemDetailsActions'
+import { mapConditionResult } from '../../utils/itemDetailsMapCondition'
 import BreadCrumb from '../BreadCrumb/BreadCrumb'
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
 import LoadingBox from '../LoadingBox'
@@ -17,25 +18,23 @@ const ItemDetails = (props) => {
 
     const renderResult = () => {
         const {condition, sold_quantity, title, price:{currency, amount} , picture, description} = item;
+        const conditionMapped = mapConditionResult(condition)
+
         return (
             <>
                 <BreadCrumb breadCrumb={breadCrumb} />
-                <div className='results'> 
+                <div className='item_details_results'> 
                     <div className='item_info'>
-                        <div>
+                        <div className='item_img_container'>
                             <img
                                 className='item_info_picture' 
                                 src={picture} 
                                 alt='Item' 
                                 data-testid='itemIMG'
-                            />
-                            <div className='item_description' >
-                                <p className='item_description_title'> Descripcion del producto</p>
-                                <p className='item_description_details' data-testid='descriptionContainer' > {description} </p>
-                            </div> 
+                            />   
                         </div>
                         <div className='item_info_data'>
-                            <span className='item_sales' data-testid='conditionAndSoldQContainer'> { condition} - {sold_quantity} Vendidos</span>
+                            <span className='item_sales' data-testid='conditionAndSoldQContainer'> {conditionMapped} - {sold_quantity} Vendidos</span>
                             <span className='item_title'  data-testid='titleContainer'> { title }</span>
                             <span className='item_price' data-testid='priceContainer'> 
                                 { currency === 'ARS' ? '$' : currency} &nbsp;   
@@ -44,6 +43,10 @@ const ItemDetails = (props) => {
                             <button className='item_buy_button'> Comprar </button>
                         </div>
                     </div>
+                    <div className='item_description' >
+                        <p className='item_description_title'> Descripcion del producto</p>
+                        <p className='item_description_details' data-testid='descriptionContainer' > {description} </p>
+                    </div> 
                     
                 </div>
             </>
